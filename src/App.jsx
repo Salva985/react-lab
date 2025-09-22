@@ -1,5 +1,5 @@
 import Hobbies from './components/Hobbies.jsx'
-import SongsList from './components/SongList.jsx'
+import SongsList from './components/SongsList.jsx'
 import songs from './data/songs.json'
 
 function App() {

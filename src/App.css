@@ -1,42 +1,110 @@
 :root {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
-  line-height: 1.4;
+  --bg: #f6f8fb;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --brand: #2563eb;
+  --panel: #ffffff;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c10;
+    --text: #e8ecf1;
+    --muted: #9aa3b2;
+    --border: #2a2e35;
+    --brand: #5ea1ff;
+    --panel: #121318;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(94,161,255,.08), transparent),
+    radial-gradient(900px 600px at 110% 110%, rgba(94,161,255,.08), transparent),
+    var(--bg);
+  color: var(--text);
+}
+
+/* Container & headings */
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
+  max-width: 980px;
+  margin: 3rem auto 5rem;
   padding: 0 1rem;
 }
 
 .header h1 { 
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 3rem;
+  letter-spacing: .3px;
 }
-
 .header h2 { 
-  margin: .2rem 0 1rem; 
-  color: #666; 
+  margin: .2rem 0 1.6rem; 
+  color: var(--muted); 
   font-weight: 500;
 }
 
+/* Profile row (card look, responsive) */
 .profile {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 200px 1fr;
   gap: 1rem;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
   margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+@media (max-width: 640px) {
+  .profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 .avatar {
-  border-radius: 12px;
+  border-radius: 14px;
   object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0,0,0,.1);
+  justify-self: center;
 }
 
+.profile a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .35rem .6rem;
+  border-radius: 10px;
+  background: rgba(94,161,255,.12);
+  border: 1px solid rgba(94,161,255,.28);
+}
+.profile a:hover { filter: brightness(1.05); }
+
+/* Section titles */
+h3 { margin: 2rem 0 1rem; font-size: 1.25rem; }
+
+/* Hobbies list */
 .list {
   margin-left: 1.2rem;
   margin-bottom: 2rem;
 }
 
+/* Songs grid */
 .songs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -47,18 +115,29 @@
 
 .song-card {
   display: flex;
-  gap: .8rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: .8rem;
+  gap: .9rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: .9rem;
+  background: var(--panel);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
 }
 
-.song-meta {
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
+.song-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(94,161,255,.35);
+  box-shadow: 0 14px 28px rgba(0,0,0,.12);
 }
 
-.song-meta strong {
-  font-size: 1.05rem;
+.song-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--border);
 }
+
+.song-meta { display: flex; flex-direction: column; gap: .2rem; }
+.song-meta strong { font-size: 1.05rem; }
+.song-meta span { color: var(--muted); }
