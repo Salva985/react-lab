@@ -1,0 +1,37 @@
+[
+    { 
+      "title": "Innerbloom (Sasha Remix)", 
+      "album": "Bloom", 
+      "albumImage": "https://picsum.photos/seed/innerbloom/200/200", 
+      "duration": 765, 
+      "rating": 5 
+    },
+    { 
+      "title": "Kreature", 
+      "album": "Afterlife", 
+      "albumImage": "https://picsum.photos/seed/kreature/200/200", 
+      "duration": 520, 
+      "rating": 4 
+    },
+    { 
+      "title": "Atlas", 
+      "album": "Tale Of Us Selections", 
+      "albumImage": "https://picsum.photos/seed/atlas/200/200", 
+      "duration": 395, 
+      "rating": 5 
+    },
+    { 
+      "title": "Turn the Lights Down", 
+      "album": "Drumcode", 
+      "albumImage": "https://picsum.photos/seed/lightsdown/200/200", 
+      "duration": 410, 
+      "rating": 4 
+    },
+    { 
+      "title": "Fading", 
+      "album": "Afterlife Horizons", 
+      "albumImage": "https://picsum.photos/seed/fading/200/200", 
+      "duration": 480, 
+      "rating": 5 
+    }
+  ]
