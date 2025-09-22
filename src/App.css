@@ -141,3 +141,27 @@ h3 { margin: 2rem 0 1rem; font-size: 1.25rem; }
 .song-meta { display: flex; flex-direction: column; gap: .2rem; }
 .song-meta strong { font-size: 1.05rem; }
 .song-meta span { color: var(--muted); }
+
+/* Navvigation Menu */
+.nav {
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  background: var(--panel, #fff);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text, #0f172a);
+  padding: .35rem .6rem;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: rgba(94,161,255,.12);
+}
+
+.nav-link.active {
+  color: var(--brand, #2563eb);
+  font-weight: 700;
+  background: rgba(94,161,255,.14);
+  border: 1px solid rgba(94,161,255,.28);
+}

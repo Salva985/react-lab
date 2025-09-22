@@ -1,39 +1,34 @@
-import Hobbies from './components/Hobbies.jsx'
-import SongsList from './components/SongsList.jsx'
-import songs from './data/songs.json'
+import { Routes, Route, NavLink } from 'react-router-dom'
+import Home from './pages/Home.jsx'
+import SongsPage from './pages/SongsPage.jsx'
+import NotFound from './pages/NotFound.jsx'
 
-function App() {
-  const firstName = 'Salva'
-  const lastName = 'Marchese'
-  const hobbies = ['Scuba diving', 'Web development', 'Tecno music', 'Cats', 'Travel']
-
+export default function App() {
   return (
-    <main className='container'>
-      <header className='header'>
-        <h1>{firstName}</h1>
-        <h2>{lastName}</h2>
-      </header>
+    <>
+      <nav className="nav">
+        <div className="container" style={{ display: 'flex', gap: '1rem', padding: '0.75rem 0' }}>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Home
+          </NavLink>
+          <NavLink to="/songs" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Songs
+          </NavLink>
+        </div>
+      </nav>
 
-      <section className='profile'>
-        <img
-          src="/profile.jpg"
-          alt="Profile of Salva Marchese"
-          width="200"
-          height="200"
-          className="avatar"
-        />
-        <p>
-          Visit my GitHub:{' '}
-          <a href="https://github.com/Salva985" target="_blank" rel="noreferrer">
-            GitHub Salva985
-          </a>
-        </p>
-      </section>
+      <Routes>
+        {/* Home on both "/" and "/home" */}
+        <Route path="/" element={<Home />} />
+        
+        <Route path="/home" element={<Home />} />
 
-      <Hobbies items={hobbies} />
-      <SongsList songs={songs} />
-    </main>
+        {/* Songs page */}
+        <Route path="/songs" element={<SongsPage />} />
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
-
-export default App
