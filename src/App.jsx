@@ -3,19 +3,26 @@ import Home from './pages/Home.jsx'
 import SongsPage from './pages/SongsPage.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Contact from './pages/Contact.jsx'
+import Posts from './pages/Posts.jsx'
 
 export default function App() {
   return (
     <>
       <nav className="nav">
         <div className="container" style={{ display: 'flex', gap: '1rem', padding: '0.75rem 0' }}>
+
           <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
             Home
           </NavLink>
+
           <NavLink to="/songs" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
             Songs
           </NavLink>
+
           <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact
+          </NavLink>
+
+          <NavLink to="/posts" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Posts
           </NavLink>
         </div>
       </nav>
@@ -31,6 +38,9 @@ export default function App() {
 
         {/*Contact form */}
         <Route path="/contact" element={<Contact />} />
+
+        {/* Posts CRUD */}
+        <Route path="/posts" element={<Posts />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
